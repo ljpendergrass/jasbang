@@ -1,0 +1,192 @@
+$key: #6993b0;
+$stylewhite: #f7f7f7;
+$styleblack: #222;
+
+@import 'checkbox';
+
+$appradius: .5rem;
+
+$bp-medium: 720px;
+$bp-large: 1024px;
+
+$fontdisplay: 'Fjalla One', sans-serif;
+$fontbody: 'Roboto', serif;
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: #eee url("../images/geometry.png") center;
+}
+
+main{
+  margin: 0 auto;
+  min-width: 320px;
+  min-height: 4rem;
+  color: $styleblack;
+  @media screen and (min-width: $bp-medium){
+  }
+}
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $fontdisplay;
+}
+
+ul, li, p, label{
+  font-family: $fontbody;
+}
+
+header{
+  h2{
+    font-size: 1rem;
+    color: $key;
+    font-style: italic;
+  }
+  @media screen and (min-width: $bp-medium){
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid $key;
+  }
+}
+
+section{
+  // border: 1px solid purple;
+}
+
+.sidebar{
+  background: $stylewhite;
+  padding: 1rem;
+  border-bottom: 1px solid $key;
+  @media screen and (min-width: $bp-medium){
+    width: 25%;
+    min-width: 250px;
+    margin-right: 2rem;
+    border-right: 1px solid $key;
+    border-bottom: none;
+    height: 100vh;
+    float: left;
+    // border-radius: $appradius;
+  }
+}
+.spells{
+  width: 100%;
+  padding: 1rem;
+  @media screen and (min-width: $bp-medium){
+    padding: 2rem 2rem 0 0;
+    width: auto;
+    height: 100vh;
+    overflow: scroll;
+  }
+}
+
+.spelllist, .spelldetails, .infotext{
+  list-style: none;
+}
+
+ul{
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+li.spelldetail{
+  margin: 0 0 .5rem 0;
+}
+
+.spell{
+  background: $stylewhite;
+  border-radius: $appradius;
+  border: 1px solid $key;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  h2{
+    margin: 1rem 0 .5rem 0;
+    display: inline-block;
+  }
+  .quickinfo{
+    max-width: 100%;
+    text-align:left;
+    margin: 1.3rem 0 .5rem 0;
+    li{
+      display: inline-block;
+      margin-right: 4px;
+    }
+    li.level{
+      text-transform: capitalize;
+    }
+  }
+}
+
+.infotext{
+  font-size: .8rem;
+  color: $key;
+  li{
+    display: inline-block;
+  }
+}
+
+.tag{
+  text-transform: capitalize;
+  display: inline-block;
+  margin: 0 4px 6px 0;
+  padding: 2px 6px;
+  border: 1px solid $key;
+  border-radius: $appradius;
+}
+
+.summary{
+  font-style: italic;
+  font-size: .8rem;
+}
+
+.spelllist{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .spell{
+    flex: 0 0 100%;
+    @media screen and (min-width: $bp-large){
+      flex: 0 1 calc(50% - 1rem);
+    }
+    ul:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+}
+
+.clearfix{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.level{
+  float: right;
+  text-transform: capitalize;
+  font-family: $fontdisplay;
+  margin-top: 1.3rem;
+}
+
+.introicon{
+  margin-right: 6px;
+}
+
+
+.nobullet{
+  list-style-type: none;
+  li{
+    list-style-type: none;
+  }
+}
+.filter{
+  margin: 0 0 1.5rem 0;
+  label{
+    margin-bottom: .5rem;
+    display: block;
+  }
+  .filterclass{
+  }
+  .orderfilter{
+    cursor: pointer;
+  }
+}

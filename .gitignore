@@ -1,0 +1,5 @@
+# ignore fontawesome 5 stuff
+/css/fa/*
+/css/webfonts/*
+# angular should be fine to include but i am going to keep it out for now
+/js/angular

@@ -1,0 +1,14 @@
+body{
+  background: #222;
+  background: #222 url("../images/ep_naturalblack.png") center;
+}
+
+main{
+  background: #333;
+  margin: 0 auto;
+  min-width: 320px;
+  min-height: 4rem;
+  color: #eee;
+  padding: 1rem;
+  font-family: sans-serif;
+}

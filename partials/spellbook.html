@@ -1,0 +1,113 @@
+<section class="sidebar">
+  <header>
+    <h1>JASBAng </h1>
+    <h2>Just Another Spellbook (using) Angular</h2>
+  </header>
+  <ul class="filters nobullet">
+    <li class="filter">
+      <label>Search by spell name</label>
+      <input ng-model="spellname.name" placeholder="Spell name" autofocus>
+    </li>
+    <li class="filter">
+      <label>Filter by class</label>
+      <ul class="filterclasses nobullet">
+        <li class="filterclass">
+          <label class="control control--checkbox">Bard <input type="checkbox" ng-model="Filter.casterClass.bard" ng-true-value="'bard'" ng-false-value="'!bard'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox">Cleric <input type="checkbox" ng-model="Filter.casterClass.cleric" ng-true-value="'cleric'" ng-false-value="'!cleric'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox"> Cleric (Trickery) <input type="checkbox" ng-model="Filter.casterClass.clerictrickery" ng-true-value="'clerictrickery'" ng-false-value="'!clerictrickery'" /><div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox">Druid <input type="checkbox" ng-model="Filter.casterClass.druid" ng-true-value="'druid'" ng-false-value="'!druid'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox">Paladin <input type="checkbox" ng-model="Filter.casterClass.paladin" ng-true-value="'paladin'" ng-false-value="'!paladin'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox">Ranger <input type="checkbox" ng-model="Filter.casterClass.ranger" ng-true-value="'ranger'" ng-false-value="'!ranger'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox">Sorcerer <input type="checkbox" ng-model="Filter.casterClass.sorcerer" ng-true-value="'sorcerer'" ng-false-value="'!sorcerer'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox">Warlock <input type="checkbox" ng-model="Filter.casterClass.warlock" ng-true-value="'warlock'" ng-false-value="'!warlock'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+        <li class="filterclass">
+          <label class="control control--checkbox">Wizard <input type="checkbox" ng-model="Filter.casterClass.wizard" ng-true-value="'wizard'" ng-false-value="'!wizard'" /> <div class="control__indicator"></div>
+          </label>
+        </li>
+      </ul>
+      <ul class="order nobullet">
+        <label>Order by</label>
+        <li class="orderfilter" ng-click="OrderFilter='name'">Name</li>
+        <li class="orderfilter" ng-click="OrderFilter='level'">Level</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="spells">
+  <ul class="spelllist">
+    <li class="spell" ng-repeat="item in spells | searchFilter:Filter.casterClass | filter: spellname | orderBy:OrderFilter">
+      <H2>{{item.name}}</H2>
+      <div class="level">
+        <i class="far fa-bolt"></i> {{item.level}}
+      </div>
+      <!-- <p class="summary">{{item.type}}</p> -->
+      <ul class="quickinfo infotext clearfix">
+        <!-- <li class="level">
+          <i class="far fa-bolt"></i> {{item.level}}
+        </li> -->
+        <!-- <li>
+          Quick Info:
+        </li> -->
+        <!-- <li class="introicon">
+          <i class="far fa-info-circle"></i>
+        </li> -->
+        <li class="tag">
+          <i class="far fa-clock"></i> {{item.casting_time}}
+        </li>
+        <li class="tag">
+          <i class="far fa-alarm-clock"></i> {{item.duration}}
+        </li>
+        <li class="tag">
+          <i class="far fa-arrows-h"></i> {{item.range}}
+        </li>
+        <li class="tag" ng-if="item.ritual == true">
+          <i class="far fa-repeat"></i> Ritual
+        </li>
+      </ul>
+      <ul class="spelldetails">
+        <!-- <li class="spelldetail summary">
+          {{item.type}}
+        </li> -->
+        <li class="spelldetail description">
+          {{item.description}}
+        </li>
+
+        <!-- <li class="spelldetail">
+          Ritual: {{item.ritual}}
+        </li> -->
+      </ul>
+      <ul class="infotext">
+        <li class="introicon">
+          <i class="far fa-user"></i>
+        </li>
+        <li class="tag" ng-repeat="tag in item.tags | filter : '!level' | filter : '!cantrip'">
+          {{tag}}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</section>
