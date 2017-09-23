@@ -60,21 +60,27 @@
 <section class="spells">
   <ul class="spelllist">
     <li class="spell" ng-repeat="item in spells | searchFilter:Filter.casterClass | filter: spellname | orderBy:OrderFilter">
-      <H2>{{item.name}}</H2>
-      <div class="level">
-        <i class="far fa-bolt"></i> {{item.level}}
-      </div>
-      <!-- <p class="summary">{{item.type}}</p> -->
-      <ul class="quickinfo infotext clearfix">
-        <!-- <li class="level">
+      <section class="spelltop">
+        <H2>{{item.name}}</H2>
+        <div class="level">
           <i class="far fa-bolt"></i> {{item.level}}
-        </li> -->
-        <!-- <li>
-          Quick Info:
-        </li> -->
-        <!-- <li class="introicon">
-          <i class="far fa-info-circle"></i>
-        </li> -->
+        </div>
+        <ul class="infotext clearfix">
+          <li class="introicon">
+            <i class="far fa-user"></i>
+          </li>
+          <li class="tag" ng-repeat="tag in item.tags | filter : '!level' | filter : '!cantrip'">
+            {{tag}}
+          </li>
+        </ul>
+      </section>
+      <section class="spellbottom">
+      <ul class="spelldetails">
+        <li class="spelldetail description">
+          {{item.description}}
+        </li>
+      </ul>
+      <ul class="quickinfo infotext clearfix">
         <li class="tag">
           <i class="far fa-clock"></i> {{item.casting_time}}
         </li>
@@ -88,26 +94,7 @@
           <i class="far fa-repeat"></i> Ritual
         </li>
       </ul>
-      <ul class="spelldetails">
-        <!-- <li class="spelldetail summary">
-          {{item.type}}
-        </li> -->
-        <li class="spelldetail description">
-          {{item.description}}
-        </li>
-
-        <!-- <li class="spelldetail">
-          Ritual: {{item.ritual}}
-        </li> -->
-      </ul>
-      <ul class="infotext">
-        <li class="introicon">
-          <i class="far fa-user"></i>
-        </li>
-        <li class="tag" ng-repeat="tag in item.tags | filter : '!level' | filter : '!cantrip'">
-          {{tag}}
-        </li>
-      </ul>
+    </section>
     </li>
   </ul>
 </section>

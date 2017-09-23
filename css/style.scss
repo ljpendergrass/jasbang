@@ -1,3 +1,4 @@
+// First Line Comment
 $key: #6993b0;
 $stylewhite: #f7f7f7;
 $styleblack: #222;
@@ -93,10 +94,10 @@ li.spelldetail{
 }
 
 .spell{
-  background: $stylewhite;
+  overflow: hidden;
+  background: rgba($stylewhite, .3);
   border-radius: $appradius;
   border: 1px solid $key;
-  padding: 1rem;
   margin-bottom: 2rem;
   h2{
     margin: 1rem 0 .5rem 0;
@@ -105,7 +106,7 @@ li.spelldetail{
   .quickinfo{
     max-width: 100%;
     text-align:left;
-    margin: 1.3rem 0 .5rem 0;
+    margin: .3rem 0 .5rem 0;
     li{
       display: inline-block;
       margin-right: 4px;
@@ -114,11 +115,33 @@ li.spelldetail{
       text-transform: capitalize;
     }
   }
+  .spelltop, .spellbottom{
+    padding: .25rem 1rem;
+  }
+  .spelltop{
+    // TODO: fix white space pre description
+    // margin-bottom: .75rem;
+    background: lighten($key, 20%);
+    .infotext{
+      color: $styleblack;
+    }
+    .tag{
+      border: 1px solid $styleblack;
+    }
+  }
+  .spellbottom {
+    .infotext{
+      color: $key;
+    }
+    .tag{
+      border: 1px solid $key;
+    }
+  }
 }
 
 .infotext{
   font-size: .8rem;
-  color: $key;
+  // color: $key;
   li{
     display: inline-block;
   }
@@ -129,7 +152,7 @@ li.spelldetail{
   display: inline-block;
   margin: 0 4px 6px 0;
   padding: 2px 6px;
-  border: 1px solid $key;
+  // border: 1px solid $key;
   border-radius: $appradius;
 }
 
@@ -189,4 +212,8 @@ li.spelldetail{
   .orderfilter{
     cursor: pointer;
   }
+}
+
+.description{
+  white-space: pre-line;
 }

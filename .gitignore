@@ -4,3 +4,5 @@
 # angular should be fine to include but i am going to keep it out for now
 /js/angular
 js/spells.json
+*.min.css
+*.min.css.map
